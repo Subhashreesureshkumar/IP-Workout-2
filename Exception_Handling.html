@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Exception Handling</title>
+</head>
+<body>
+    <pre>
+        {
+            firstName:"Subhashree",
+            lastName:"Sureshkumar"
+        }
+    </pre>
+    <br>
+    <label for="name">Enter the name:</label>
+    <input type="text" id="name">
+    <br><br>
+    <input type="button" value="Get FullName" onclick="getFullName()">
+    <input type="button" value="Set FullName" onclick="setFullName(document.getElementById('name').value)">
+    <br>
+    <p id="output"></p>
+    <script>
+        //firstname and lastname
+        var student={firstName:"Subhashree",lastName:"Sureshkumar"};
+        //functions getFullName() and setFullName(value)
+        function getFullName()
+        {
+            var fullName=student.firstName+" "+student.lastName;
+            document.getElementById("output").innerHTML="Full Name: "+fullName;
+        }
+
+        function setFullName(value)
+        {
+            //try catch throw
+            try{
+                if(typeof value!="string" || Number(value))
+                {
+                    throw "Given value is not a String !!";
+                }
+                if(value.length<3)
+                {
+                    throw "Length of the value is <3 !!"
+                }
+                document.getElementById("output").innerHTML="Full Name: "+value;
+            }
+            catch(err)
+            {
+                document.getElementById("output").innerHTML="Error: "+err;
+            }
+        }
+    </script>
+</body>
+</html>
